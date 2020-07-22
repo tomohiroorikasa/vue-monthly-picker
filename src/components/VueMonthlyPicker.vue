@@ -158,8 +158,8 @@ export default {
       this.closeMenu()
     },
     selectPicker () {
-      this.$emit('input', this.internalDayjsValue.clone())
-      this.$emit('selected', this.internalDayjsValue.clone())
+      this.$emit('input', this.internalDayjsValue.format('YYYY/MM'))
+      this.$emit('selected', this.internalDayjsValue.format('YYYY/MM'))
     },
     setValue (value) {
       if (typeof value === 'string') {
@@ -204,7 +204,8 @@ export default {
           this.month = changeValue.format('MM')
           this.year = changeValue.format('YYYY')
 
-          this.$emit('input', this.internalDayjsValue.clone())
+          this.$emit('input', this.internalDayjsValue.format('YYYY/MM'))
+          this.$emit('selected', this.internalDayjsValue.format('YYYY/MM'))
         }
       } else {
         this.$emit('input', '')
