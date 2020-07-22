@@ -17,21 +17,14 @@
       </vue-monthly-picker>
     </div>
     <div class="columns option-list">
-      <div class="column is-3">
+      <div class="column is-4">
         <b-field label="Disabled" expanded>
             <b-checkbox v-model="isDisable">
                 {{ isDisable ? 'Disabled': 'Enable'}}
             </b-checkbox>
         </b-field>
       </div>
-      <div class="column is-3">
-        <b-field label="Range" expanded>
-            <b-checkbox v-model="isLimitRange">
-                {{ rangeDisplay }}
-            </b-checkbox>
-        </b-field>
-      </div>
-      <div class="column is-3">
+      <div class="column is-4">
         <b-field label="Display" expanded position="is-centered">
             <b-switch v-model="isDisplayInput"
                 true-value="Input"
@@ -117,25 +110,7 @@ export default {
       alignments: ['left', 'center', 'right'],
       colorExamples: ['blue', 'red', 'black'],
       min: null,
-      max: null,
-      isLimitRange: false,
-    }
-  },
-  computed: {
-    rangeDisplay () {
-      if (!this.min || !this.max) {
-        return 'Disabled'
-      }
-      return this.min.format('YYYY/MM') + '-' + this.max.format('YYYY/MM')
-    }
-  },
-  watch: {
-    isLimitRange (newValue) {
-      if (newValue) {
-        this.setSelectRange(dayjs().subtract(6, 'months'), dayjs().add(6, 'months'))
-      } else {
-        this.setSelectRange(null, null)
-      }
+      max: null
     }
   },
   methods: {

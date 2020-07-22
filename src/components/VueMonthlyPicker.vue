@@ -391,19 +391,5 @@ $lightgray: #d4d4d4;
     height: 100%;
     padding: 6px;
   }
-  .vmp-clear-icon {
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    font-style: normal;
-    color: #555;
-    text-align: center;
-    cursor: pointer;
-    &:before {
-      display: inline-block;
-      content: '\2716';
-      vertical-align: middle;
-    }
-  }
 }
 </style>
