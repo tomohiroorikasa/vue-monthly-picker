@@ -30,7 +30,7 @@ Vue.component('my-component', {
 </vue-monthly-picker>
 ```
 
-**Note**: `v-model` binding value need to be a **moment** object
+**Note**: `v-model` binding value need to be a **Day.js** object
 ## Available props
 
 
@@ -39,10 +39,10 @@ Vue.component('my-component', {
 | disabled                 | Boolean    |      `false`     | Enable/disable component             |
 | monthLabels                  | Array          |    `['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']`         | Customize month labels                      |
 | placeHolder                  | String          |    ''         | Place holder when value is null                      |
-| min                  | moment          |    `null`         | Minimum time to select                      |
-| max                  | moment          |    `null`         | Maximum time to select                      |
+| min                  | dayjs          |    `null`         | Minimum time to select                      |
+| max                  | dayjs          |    `null`         | Maximum time to select                      |
 | dateFormat                  | String          |    `YYYY/MM`         | Display format.                      |
-| value                  | moment          |    `null`         | Moment value of selected month and year                  |
+| value                  | dayjs          |    `null`         | Day.js value of selected month and year                  |
 | alignment                  | String          |    `left`         | Alignment of input value, possible value: `left`, `right`, `center`                  |
 | selectedBackgroundColor                  | String          |    `#007bff`         | Background color of selected value. It can be HTML color name (red, green, blue) or hexa color code (`#00FF00`, `#0000FF`)                  |
 | clearOption                  | Boolean          |    true         | Show/Hide clear option                  |
@@ -53,7 +53,7 @@ Vue.component('my-component', {
 
 | Event | Params | Description |
 |-------|--------|-------------|
-|selected| selected month in `moment`| A month has been selected |
+|selected| selected month in `dayjs`| A month has been selected |
 
 ## Build Setup
 

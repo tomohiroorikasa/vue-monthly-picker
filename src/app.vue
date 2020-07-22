@@ -91,7 +91,7 @@
 </template>
 
 <script>
-import moment from 'moment'
+import dayjs from 'dayjs'
 import VueMonthlyPicker from './lib'
 import ForkGithub from './common/ForkGithub.vue'
 
@@ -99,7 +99,7 @@ export default {
   name: 'app',
   data () {
     return {
-      selectedMonth: moment(),
+      selectedMonth: dayjs(),
       isDisable: false,
       isDisplayInput: true,
       locale: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -141,7 +141,7 @@ export default {
   watch: {
     isLimitRange (newValue) {
       if (newValue) {
-        this.setSelectRange(moment().subtract(6, 'months'), moment().add(6, 'months'))
+        this.setSelectRange(dayjs().subtract(6, 'months'), dayjs().add(6, 'months'))
       } else {
         this.setSelectRange(null, null)
       }

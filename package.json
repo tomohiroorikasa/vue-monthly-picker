@@ -1,15 +1,15 @@
 {
   "name": "vue-monthly-picker",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "Vue Monthly Picker",
-  "author": "Vu Minh Thang <vuminhthang.cm@gmail.com>",
+  "author": "Tomohiro Orikasa <tomohiro@ocids.com>",
   "main": "dist/lib/vue-monthly-picker.min.js",
   "private": false,
   "license": "MIT",
-  "homepage": "https://github.com/ittus/vue-monthly-picker",
+  "homepage": "https://github.com/tomohiroorikasa/vue-monthly-picker",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ittus/vue-monthly-picker"
+    "url": "git+https://github.com/tomohiroorikasa/vue-monthly-picker"
   },
   "keywords": [
     "month-select",
@@ -53,6 +53,7 @@
     "cross-spawn": "^5.0.1",
     "css-loader": "^0.28.0",
     "cssnano": "^4.1.10",
+    "dayjs": "^1.8.30",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^6.2.1",
     "eslint-friendly-formatter": "^3.0.0",
@@ -80,7 +81,6 @@
     "karma-webpack": "^2.0.2",
     "lolex": "^1.5.2",
     "mocha": "^3.2.0",
-    "moment": "^2.18.1",
     "nightwatch": "^1.1.13",
     "node-sass": "^4.12.0",
     "npm-run-all": "^4.0.2",
@@ -118,7 +118,6 @@
     "not ie <= 8"
   ],
   "peerDependencies": {
-    "moment": "^2.18.1",
     "vue": "^2.2.1"
   }
 }

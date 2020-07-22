@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import moment from 'moment'
+import dayjs from 'dayjs'
 
 export default {
   name: 'vue-monthly-picker',
@@ -100,8 +100,8 @@ export default {
   data () {
     return {
       showMenu: false,
-      year: moment().format('YYYY'),
-      month: moment().format('MM')
+      year: dayjs().format('YYYY'),
+      month: dayjs().format('MM')
     }
   },
   mounted () {
@@ -128,14 +128,14 @@ export default {
     },
     displayText () {
       if (this.value) {
-        let valueMoment = null
+        let valueDayjs = null
         if (typeof this.value === 'string') {
-          valueMoment = moment(this.value)
+          valueDayjs = dayjs(this.value)
         } else {
-          valueMoment = this.value
+          valueDayjs = this.value
         }
-        if (valueMoment && valueMoment.isValid()) {
-          return valueMoment.format(this.dateFormat)
+        if (valueDayjs && valueDayjs.isValid()) {
+          return valueDayjs.format(this.dateFormat)
         }
       } else {
         return this.placeHolder
@@ -143,17 +143,17 @@ export default {
     },
     canBack () {
       if (!this.min) return true
-      const currentVal = this.internalMomentValue.clone().startOf('year')
+      const currentVal = this.internalDayjsValue.clone().startOf('year')
       return this.min.isBefore(currentVal)
     },
     canNext () {
       if (!this.max) return true
-      const currentVal = this.internalMomentValue.clone().endOf('year')
+      const currentVal = this.internalDayjsValue.clone().endOf('year')
       return currentVal.isBefore(this.max)
     },
-    internalMomentValue () {
+    internalDayjsValue () {
       const yrMonth = this.year + '/' + this.month
-      return moment(yrMonth, 'YYYY/MM')
+      return dayjs(yrMonth, 'YYYY/MM')
     }
   },
   methods: {
@@ -189,12 +189,12 @@ export default {
       this.closeMenu()
     },
     selectPicker () {
-      this.$emit('input', this.internalMomentValue.clone())
-      this.$emit('selected', this.internalMomentValue.clone())
+      this.$emit('input', this.internalDayjsValue.clone())
+      this.$emit('selected', this.internalDayjsValue.clone())
     },
     setValue (value) {
       if (typeof value === 'string') {
-        value = moment(value)
+        value = dayjs(value)
       }
       if (value && value.isValid()) {
         this.month = value.format('MM')
@@ -204,10 +204,10 @@ export default {
     isActive (idx) {
       let realMonth = idx + 1
       const yrMonth = this.year + '/' + (realMonth < 10 ? '0' + realMonth : realMonth)
-      if (this.min && moment(yrMonth, 'YYYY/MM').isBefore(this.min)) {
+      if (this.min && dayjs(yrMonth, 'YYYY/MM').isBefore(this.min)) {
         return false
       }
-      if (this.max && moment(yrMonth, 'YYYY/MM').isAfter(this.max)) {
+      if (this.max && dayjs(yrMonth, 'YYYY/MM').isAfter(this.max)) {
         return false
       }
       return true
@@ -218,7 +218,7 @@ export default {
       }
       let checkValue = this.value
       if (typeof this.value === 'string') {
-        checkValue = moment(this.value)
+        checkValue = dayjs(this.value)
       }
       if (checkValue && checkValue.isValid()) {
         const currentMonth = checkValue.format('MM')
