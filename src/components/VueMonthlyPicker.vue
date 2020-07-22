@@ -395,6 +395,11 @@ $lightgray: #d4d4d4;
     max-width: 100%;
     width: 100%;
   }
+
+  .input[disabled] {
+    background-color: #e9ecef;
+  }
+
   .deactive {
     color: #999999;
   }
