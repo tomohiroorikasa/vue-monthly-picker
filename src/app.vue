@@ -5,53 +5,31 @@
     <fork-github githubUrl="https://github.com/tomohiroorikasa/vue-monthly-picker" />
     <div class="demo-component">
       <vue-monthly-picker
-       :inputClass="{'input': isDisplayInput}"
        :disabled="isDisable"
        :monthLabels="locale"
        :min="min"
        :max="max"
        @selected="handleSelect"
-       v-model="selectedMonth"
-       :alignment="alignment"
-       :selectedBackgroundColor="selectedBackgroundColor">
+       v-model="selectedMonth">
       </vue-monthly-picker>
     </div>
-    <div class="container">
-      <div class="row mt-5">
-        <div class="col form-inline">
-          <div class="form-group">
-            <label for="Disabled" class="mr-2">Disabled:</label>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="Disabled" v-model="isDisable">
-              <!--label class="form-check-label" for="Disabled">Disabled</label-->
-            </div>
-          </div>
+    <div class="justify-content-center mt-3 form-inline">
+      <div class="form-group">
+        <label for="Disabled" class="mr-2">Disabled:</label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="Disabled" v-model="isDisable">
+          <!--label class="form-check-label" for="Disabled">Disabled</label-->
         </div>
-        <div class="col form-inline">
-          <div class="form-group">
-            <label for="Locale" class="mr-2">Localization:</label>
-            <select id="Locale" class="form-control" v-model="locale">
-              <option
-                  v-for="option in options"
-                  :value="option.monthLabels"
-                  :key="option.id">{{ option.title }}
-              </option>
-            </select>
-          </div>
-        </div>
-        <div class="col form-inline">
-          <div class="form-group">
-            <label for="Color" class="mr-2">Selected background color:</label>
-            <select id="Color" class="form-control" v-model="selectedBackgroundColor">
-              <option
-                  v-for="color in colorExamples"
-                  :value="color"
-                  :key="color">
-                  {{ color }}
-              </option>
-            </select>
-          </div>
-        </div>
+      </div>
+      <div class="form-group ml-3">
+        <label for="Locale" class="mr-2">Localization:</label>
+        <select id="Locale" class="form-control" v-model="locale">
+          <option
+              v-for="option in options"
+              :value="option.monthLabels"
+              :key="option.id">{{ option.title }}
+          </option>
+        </select>
       </div>
     </div>
   </div>
@@ -66,12 +44,11 @@ export default {
   name: 'app',
   data () {
     return {
-      selectedMonth: dayjs(),
+      selectedMonth: dayjs().format('YYYY/MM'),
       isDisable: false,
       isDisplayInput: true,
       locale: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
       alignment: 'left',
-      selectedBackgroundColor: 'blue',
       options: [
         {
           id: 1,
@@ -89,8 +66,6 @@ export default {
           monthLabels: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
         }
       ],
-      alignments: ['left', 'center', 'right'],
-      colorExamples: ['blue', 'red', 'black'],
       min: null,
       max: null
     }

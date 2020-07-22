@@ -7,7 +7,7 @@
             class="form-control"
             :disabled="disabled"
             :value="displayText"
-            @change="setValue(displayText)">
+            @change="changeValue">
       </div>
       <div class="text"></div>
       <div class="date-popover" :class="menuClass" :style="menuStyle" tabindex="-1">
@@ -21,7 +21,6 @@
             <template v-for="(month, idx) in monthLabels">
               <div class="item active"
                 :class="{'selected': isCurrentSelected(year, idx)}"
-                :style="[{'background-color': getBackgroundColor(year, idx)}]"
                 v-if="isActive(idx)"
                 @click="selectMonth(idx)"
                 :key="idx">{{month}}
@@ -57,10 +56,6 @@ export default {
       type: String,
       default: ''
     },
-    'selectedBackgroundColor': {
-      type: String,
-      default: '#007bff'
-    },
     monthLabels: {
       type: Array,
       default: function () {
@@ -87,11 +82,6 @@ export default {
   },
   mounted () {
     this.init()
-  },
-  watch: {
-    value: function (value) {
-      this.setValue(value)
-    }
   },
   computed: {
     menuClass () {
@@ -206,9 +196,18 @@ export default {
       }
       return false
     },
-    getBackgroundColor (year, monthIdx) {
-      if (this.isCurrentSelected(year, monthIdx)) {
-        return this.selectedBackgroundColor
+    changeValue (elm) {
+      if (elm.currentTarget.value) {
+        let changeValue = dayjs(elm.currentTarget.value)
+
+        if (changeValue.isValid()) {
+          this.month = changeValue.format('MM')
+          this.year = changeValue.format('YYYY')
+
+          this.$emit('input', this.internalDayjsValue.clone())
+        }
+      } else {
+        this.$emit('input', '')
       }
     }
   }
@@ -343,40 +342,13 @@ $lightgray: #d4d4d4;
     }
   }
 
-  .input {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    align-items: center;
-    border: 1px solid transparent;
-    border-radius: 3px;
-    box-shadow: none;
-    display: inline-flex;
-    font-size: 1rem;
-    height: 2.25em;
-    justify-content: flex-start;
-    line-height: 1.5;
-    padding: 2px calc(.625em - 1px);
-    position: relative;
-    vertical-align: top;
-    background-color: #fff;
-    border-color: #dbdbdb;
-    color: #363636;
-    box-shadow: inset 0 1px 2px hsla(0,0%,4%,.1);
-    max-width: 100%;
-    width: 100%;
-  }
-
-  .input[disabled] {
-    background-color: #e9ecef;
-  }
-
   .deactive {
     color: #999999;
   }
 
   .selected {
     color: #fff;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: #0062cc;
     font-weight: bold;
   }
 
