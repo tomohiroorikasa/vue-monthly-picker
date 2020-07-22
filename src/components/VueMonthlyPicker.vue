@@ -10,7 +10,7 @@
             :value="displayText">
       </div>
       <div class="text"></div>
-      <div class="date-popover" :class="menuClass" :style="menuStyle" tabindex="-1">
+      <div class="date-popover" :class="menuClass" tabindex="-1">
         <div class="picker" style="text-align: center">
           <div class="flexbox">
             <span class="prev" @click="prevYear" :class="{deactive: !canBack}"></span>
@@ -60,14 +60,6 @@ export default {
       type: String,
       default: ''
     },
-    'alignment': {
-      type: String,
-      default: 'left',
-      validator: function (value) {
-        // The value must match one of these strings
-        return ['left', 'right', 'center'].indexOf(value) !== -1
-      }
-    },
     'selectedBackgroundColor': {
       type: String,
       default: '#007bff'
@@ -109,13 +101,6 @@ export default {
       return {
         visible: this.showMenu,
         hidden: !this.showMenu
-      }
-    },
-    menuStyle () {
-      return {
-        display: this.showMenu ? 'block' : 'none',
-        'left': this.alignment === 'right' ? '100%' : this.alignment === 'center' ? '50%' : '',
-        'transform': this.alignment === 'right' ? 'translate(-100%,0)' : this.alignment === 'center' ? 'translate(-50%,0)' : ''
       }
     },
     displayText () {
