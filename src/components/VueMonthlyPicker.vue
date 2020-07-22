@@ -8,9 +8,6 @@
             :disabled="disabled"
             :class="[inputClass, {'placeholder': !value}]">
              <div class="display-text" :class="'display-text-'+alignment" :style="[{'text-align': alignment}]">{{displayText}}</div>
-             <span class="vmp-input-append" @click.stop.prevent="clearSelect" v-if="clearOption && value">
-               <i class="vmp-clear-icon"/>
-             </span>
           </div>
       </div>
       <div class="text"></div>
@@ -91,10 +88,6 @@ export default {
     dateFormat: {
       type: String,
       default: 'YYYY/MM'
-    },
-    clearOption: {
-      type: Boolean,
-      default: true
     }
   },
   data () {
@@ -231,10 +224,6 @@ export default {
       if (this.isCurrentSelected(year, monthIdx)) {
         return this.selectedBackgroundColor
       }
-    },
-    clearSelect () {
-      this.$emit('input', null)
-      this.$emit('selected', null)
     }
   }
 }

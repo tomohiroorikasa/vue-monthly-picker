@@ -8,7 +8,6 @@
        :inputClass="{'input': isDisplayInput}"
        :disabled="isDisable"
        :monthLabels="locale"
-       :clearOption="clearOption"
        :min="min"
        :max="max"
        @selected="handleSelect"
@@ -39,13 +38,6 @@
                 false-value="Label">
                 {{ isDisplayInput? 'Input': 'Label' }}
             </b-switch>
-        </b-field>
-      </div>
-      <div class="column is-3">
-        <b-field label="Clear icon" expanded>
-            <b-checkbox v-model="clearOption">
-                {{ clearOption ? 'Enable': 'Disabled'}}
-            </b-checkbox>
         </b-field>
       </div>
     </div>
@@ -127,7 +119,6 @@ export default {
       min: null,
       max: null,
       isLimitRange: false,
-      clearOption: true
     }
   },
   computed: {
