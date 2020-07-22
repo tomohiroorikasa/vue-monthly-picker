@@ -7,10 +7,11 @@
             class="month-year-display"
             :disabled="disabled"
             :class="[inputClass, {'placeholder': !value}]"
-            :value="displayText">
+            :value="displayText"
+            @change="setValue(displayText)">
       </div>
       <div class="text"></div>
-      <div class="date-popover" :class="menuClass" tabindex="-1">
+      <div class="date-popover" :class="menuClass" :style="menuStyle" tabindex="-1">
         <div class="picker" style="text-align: center">
           <div class="flexbox">
             <span class="prev" @click="prevYear" :class="{deactive: !canBack}"></span>
@@ -101,6 +102,11 @@ export default {
       return {
         visible: this.showMenu,
         hidden: !this.showMenu
+      }
+    },
+    menuStyle () {
+      return {
+        display: this.showMenu ? 'block' : 'none'
       }
     },
     displayText () {
