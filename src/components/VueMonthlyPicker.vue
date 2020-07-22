@@ -3,12 +3,11 @@
     <div class="month-picker-wrapper"
          :class="{ 'active visible':showMenu }">
       <div class="month-year-label picker" type="text" autocomplete="off" tabindex="0" @click="openMenu">
-          <div @click="openMenu"
+          <input @click="openMenu"
             class="month-year-display"
             :disabled="disabled"
-            :class="[inputClass, {'placeholder': !value}]">
-             <div class="display-text" :class="'display-text-'+alignment" :style="[{'text-align': alignment}]">{{displayText}}</div>
-          </div>
+            :class="[inputClass, {'placeholder': !value}]"
+            :value="displayText">
       </div>
       <div class="text"></div>
       <div class="date-popover" :class="menuClass" :style="menuStyle" tabindex="-1">
@@ -397,13 +396,6 @@ $lightgray: #d4d4d4;
     color: #fff;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     font-weight: bold;
-  }
-  .display-text {
-    width: 100%;
-  }
-
-  .display-text-right {
-    margin-right: 20px;
   }
 
   .vmp-input-append {
