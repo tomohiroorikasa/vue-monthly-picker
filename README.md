@@ -5,10 +5,14 @@
 [![npm version](https://badge.fury.io/js/vue-monthly-picker.svg)](https://badge.fury.io/js/vue-monthly-picker)
 [![CircleCI](https://circleci.com/gh/ittus/vue-monthly-picker.svg?style=shield&circle-token=fa41e296ca28a346dfcea28addb1d5f671f187a8)](https://circleci.com/gh/ittus/vue-monthly-picker)
 
+<!---
 Checkout demo at https://ittus.github.io/vue-monthly-picker/
+-->
 
+<!---
 # Support
 <a href="https://www.buymeacoffee.com/8buMYCOog" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;"></a>
+-->
 
 # Install
 ```
@@ -43,10 +47,7 @@ Vue.component('my-component', {
 | max                  | dayjs          |    `null`         | Maximum time to select                      |
 | dateFormat                  | String          |    `YYYY/MM`         | Display format.                      |
 | value                  | dayjs          |    `null`         | Day.js value of selected month and year                  |
-| alignment                  | String          |    `left`         | Alignment of input value, possible value: `left`, `right`, `center`                  |
 | selectedBackgroundColor                  | String          |    `#007bff`         | Background color of selected value. It can be HTML color name (red, green, blue) or hexa color code (`#00FF00`, `#0000FF`)                  |
-| clearOption                  | Boolean          |    true         | Show/Hide clear option                  |
-| inputClass                  | String          |    `input`         | Customize css class for visible element                  |
 
 
 ## Events

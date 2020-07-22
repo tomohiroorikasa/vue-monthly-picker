@@ -4,9 +4,8 @@
          :class="{ 'active visible':showMenu }">
       <div class="month-year-label picker" type="text" autocomplete="off" tabindex="0" @click="openMenu">
           <input @click="openMenu"
-            class="month-year-display"
+            class="form-control"
             :disabled="disabled"
-            :class="[inputClass, {'placeholder': !value}]"
             :value="displayText"
             @change="setValue(displayText)">
       </div>
@@ -53,9 +52,6 @@ export default {
     'disabled': {
       type: Boolean,
       default: false
-    },
-    'inputClass': {
-      default: 'input'
     },
     'placeHolder': {
       type: String,
@@ -298,11 +294,6 @@ $lightgray: #d4d4d4;
   .text {
     position: relative;
     z-index: 2;
-  }
-  .month-year-display {
-    &:hover {
-      cursor: pointer;
-    }
   }
 
   .next,

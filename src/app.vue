@@ -2,7 +2,7 @@
   <div id="app">
     <img src="./assets/logo.png">
     <h3>Vue Monthly Picker</h3>
-    <fork-github githubUrl="https://github.com/ittus/vue-monthly-picker"/>
+    <fork-github githubUrl="https://github.com/tomohiroorikasa/vue-monthly-picker" />
     <div class="demo-component">
       <vue-monthly-picker
        :inputClass="{'input': isDisplayInput}"
@@ -16,60 +16,42 @@
        :selectedBackgroundColor="selectedBackgroundColor">
       </vue-monthly-picker>
     </div>
-    <div class="columns option-list">
-      <div class="column is-4">
-        <b-field label="Disabled" expanded>
-            <b-checkbox v-model="isDisable">
-                {{ isDisable ? 'Disabled': 'Enable'}}
-            </b-checkbox>
-        </b-field>
-      </div>
-      <div class="column is-4">
-        <b-field label="Display" expanded position="is-centered">
-            <b-switch v-model="isDisplayInput"
-                true-value="Input"
-                false-value="Label">
-                {{ isDisplayInput? 'Input': 'Label' }}
-            </b-switch>
-        </b-field>
-      </div>
-    </div>
-    <div class="columns">
-      <div class="column is-4">
-        <b-field label="Localization" expanded>
-            <b-select placeholder="Select a language" v-model="locale">
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col form-inline">
+          <div class="form-group">
+            <label for="Disabled" class="mr-2">Disabled:</label>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="Disabled" v-model="isDisable">
+              <!--label class="form-check-label" for="Disabled">Disabled</label-->
+            </div>
+          </div>
+        </div>
+        <div class="col form-inline">
+          <div class="form-group">
+            <label for="Locale" class="mr-2">Localization:</label>
+            <select id="Locale" class="form-control" v-model="locale">
               <option
                   v-for="option in options"
                   :value="option.monthLabels"
-                  :key="option.id">
-                  {{ option.title }}
+                  :key="option.id">{{ option.title }}
               </option>
-            </b-select>
-        </b-field>
-      </div>
-      <div class="column is-4">
-        <b-field label="Alignment" expanded>
-           <b-select placeholder="Select an alignment" v-model="alignment">
-             <option
-                 v-for="alignment in alignments"
-                 :value="alignment"
-                 :key="alignment">
-                 {{ alignment }}
-             </option>
-           </b-select>
-       </b-field>
-      </div>
-      <div class="column is-4">
-        <b-field label="Selected background color" expanded>
-            <b-select placeholder="Select an color" v-model="selectedBackgroundColor">
+            </select>
+          </div>
+        </div>
+        <div class="col form-inline">
+          <div class="form-group">
+            <label for="Color" class="mr-2">Selected background color:</label>
+            <select id="Color" class="form-control" v-model="selectedBackgroundColor">
               <option
                   v-for="color in colorExamples"
                   :value="color"
                   :key="color">
                   {{ color }}
               </option>
-            </b-select>
-        </b-field>
+            </select>
+          </div>
+        </div>
       </div>
     </div>
   </div>
