@@ -1,6 +1,7 @@
 import Vue from 'vue'
-import Buefy from 'buefy'
-Vue.use(Buefy)
+
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 import App from './app'
 import router from './router'
 
