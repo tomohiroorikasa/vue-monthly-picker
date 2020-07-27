@@ -86,6 +86,11 @@ export default {
   update () {
     this.init()
   },
+  watch: {
+    value: function (value) {
+      this.setValue(value)
+    }
+  },
   computed: {
     menuClass () {
       return {

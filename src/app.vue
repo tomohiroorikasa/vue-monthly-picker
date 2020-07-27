@@ -12,6 +12,7 @@
        @selected="handleSelect"
        v-model="selectedMonth">
       </vue-monthly-picker>
+      <!--button type="button" class="btn btn-primary" @click="selectedMonth = ''">Clear</button-->
     </div>
     <div class="justify-content-center mt-3 form-inline">
       <div class="form-group">
