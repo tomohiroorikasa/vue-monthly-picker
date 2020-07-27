@@ -83,6 +83,9 @@ export default {
   mounted () {
     this.init()
   },
+  update () {
+    this.init()
+  },
   computed: {
     menuClass () {
       return {
