@@ -86,6 +86,9 @@ export default {
   watch: {
     value: function (value) {
       this.setValue(value)
+    },
+    disabled: function () {
+      this.setValue(this.value)
     }
   },
   computed: {
