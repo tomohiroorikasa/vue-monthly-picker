@@ -83,9 +83,6 @@ export default {
   mounted () {
     this.init()
   },
-  updated () {
-    this.init()
-  },
   watch: {
     value: function (value) {
       this.setValue(value)
