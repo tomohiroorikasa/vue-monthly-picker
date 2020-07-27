@@ -107,7 +107,7 @@ export default {
       if (this.value) {
         let valueDayjs = null
         if (typeof this.value === 'string') {
-          valueDayjs = dayjs(this.value)
+          valueDayjs = dayjs(this.value + '/1')
         } else {
           valueDayjs = this.value
         }
@@ -129,8 +129,8 @@ export default {
       return currentVal.isBefore(this.max)
     },
     internalDayjsValue () {
-      const yrMonth = this.year + '/' + this.month
-      return dayjs(yrMonth, 'YYYY/MM')
+      const ym = this.year + '/' + this.month + '/1'
+      return dayjs(ym, 'YYYY/MM')
     }
   },
   methods: {
