@@ -167,7 +167,7 @@ export default {
       this.$emit('selected', this.internalDayjsValue.format('YYYY/MM'))
     },
     setValue (value) {
-      if (typeof value === 'string') {
+      if (value && typeof value === 'string') {
         value = dayjs(value)
       }
       if (value && value.isValid()) {
