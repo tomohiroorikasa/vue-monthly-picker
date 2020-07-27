@@ -168,6 +168,9 @@ export default {
       if (value && value.isValid()) {
         this.month = value.format('MM')
         this.year = value.format('YYYY')
+      } else {
+        this.month = dayjs().format('MM')
+        this.year = dayjs().format('YYYY')
       }
     },
     isActive (idx) {
